@@ -22,7 +22,7 @@ export default function ChatRoom({ loggedIn }) {
   const [inputMessage, setInputMessage] = useState("");
 
   const messagesCollectionRef = collection(db, "Messages");
-  const q = query(messagesCollectionRef, orderBy("Time"));
+  const q = query(messagesCollectionRef, orderBy("time"));
 
   const getMessages = async () => {
     try {
@@ -66,7 +66,7 @@ export default function ChatRoom({ loggedIn }) {
       await addDoc(messagesCollectionRef, {
         name: loggedIn.charAt(0),
         message: newMessage,
-        Time: Date(),
+        time: Date.now(),
         userId: auth?.currentUser?.uid,
       });
       setInputMessage("");

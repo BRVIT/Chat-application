@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { auth } from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import Navigation from "./components/Navigation";
 import SignUp from "./components/SignUp";
 import ChatRoom from "./components/ChatRoom";
 import LogIn from "./components/LogIn";
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navigation />
       {loggedIn ? (
         <ChatRoom loggedIn={loggedIn} />
       ) : (
