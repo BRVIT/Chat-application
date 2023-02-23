@@ -1,0 +1,83 @@
+.section-sign-up {
+  display: flex;
+  height: 100vh;
+}
+
+.sign-up {
+  max-width: 120rem;
+  height: 75%;
+  display: flex;
+  margin: auto;
+  padding: 4.8rem;
+  border-radius: 0.8rem;
+  background-image: linear-gradient(
+    to top,
+    #000428,
+    #031a40,
+    #062a5a,
+    #073b75,
+    #004e92
+  );
+  gap: 4.8rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-up__section-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.sign-up__section-text {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #333;
+  background-color: #ddd;
+  padding: 1.6rem 8rem;
+  margin-top: -4rem;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+}
+
+.sign-up__form {
+  width: 26rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.sign-up__text {
+  font-size: 1.4rem;
+  color: #ddd;
+}
+
+.sign-up__email-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.sign-up__password-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.sign-up__email-label input,
+.sign-up__password-label input {
+  color: #ddd;
+  background: none;
+  border: none;
+  outline: none;
+  margin-bottom: 0.4rem;
+  padding: 0 0.4rem;
+}
+
+.sign-up__log-in-switch {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,30 @@
+.message {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.8rem;
+  background: #ddd;
+  border-bottom: 1px solid #000;
+}
+
+.message:nth-child(2n) {
+  background: #c0c2c8;
+}
+
+.message__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: #004d90;
+  color: #ccc;
+  border-radius: 100%;
+  text-transform: uppercase;
+}
+
+.message__text {
+  font-size: 1.2rem;
+}
