@@ -1,4 +1,7 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  fetchSignInMethodsForEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../config/firebase";
 // icons
@@ -21,9 +24,19 @@ export default function LogIn(props) {
 
   const logIn = async (e) => {
     e.preventDefault();
-    await signInWithEmailAndPassword(auth, email, password);
-    setEmail("");
-    setPassword("");
+    setWrongEmail(false);
+    setWrongPassword(false);
+    try {
+      validation();
+      await signInWithEmailAndPassword(auth, email, password);
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.error(err);
+      if (err.code === "auth/wrong-password") {
+        setWrongPassword(true);
+      }
+    }
   };
 
   const logInDemo = async (e) => {
@@ -35,6 +48,11 @@ export default function LogIn(props) {
     );
   };
 
+  const validation = async () => {
+    const validEmail = await fetchSignInMethodsForEmail(auth, email);
+    if (validEmail.length <= 0) setWrongEmail(true);
+  };
+
   return (
     <section className="section-log-in">
       <div className="log-in">
@@ -44,7 +62,9 @@ export default function LogIn(props) {
         </div>
         <form className="log-in__form" onSubmit={logIn}>
           <label className="log-in__email-label">
-            <p className="log-in__text">This email adress doesn't exist.</p>
+            {wrongEmail && (
+              <p className="log-in__text">This email adress doesn't exist.</p>
+            )}
             <input
               type="email"
               value={email}
@@ -53,7 +73,9 @@ export default function LogIn(props) {
             />
           </label>
           <label className="log-in__password-label">
-            <p className="log-in__text">You have entered wrong password.</p>
+            {wrongPassword && (
+              <p className="log-in__text">You have entered wrong password.</p>
+            )}
             <input
               type="password"
               value={password}
