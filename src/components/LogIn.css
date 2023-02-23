@@ -5,7 +5,7 @@
 
 .log-in {
   max-width: 120rem;
-  height: 75%;
+  min-height: 75%;
   display: flex;
   margin: auto;
   padding: 4.8rem;

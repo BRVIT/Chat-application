@@ -7,7 +7,7 @@ export default function Navigation() {
     <div className="header">
       <div className="header__container">
         <a href="https://bryan-vandas-personal-portfolio.netlify.app/">
-          <img class="header__logo" src="Logo+name.png" alt="Logo" />
+          <img className="header__logo" src="Logo+name.png" alt="Logo" />
         </a>
         <nav></nav>
       </div>
